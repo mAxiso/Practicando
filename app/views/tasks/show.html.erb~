@@ -1,0 +1,8 @@
+<h1>Task <%= @task.id %> </h1>
+<p>
+	Task with description <%= @task.description %>
+	and priority <%= @task.priority %>
+
+</p>
+
+<%= link_to "All Tasks", tasks_path %>

@@ -1,0 +1,13 @@
+<h1>Tasks</h1>
+<ol>
+  <% @tasks.each do |task| %>
+  <li>
+	<%= task.description %>
+	<%= link_to "Show", task %>
+	<%= link_to "Edit", edit_task_path(task) %>	
+	<%= link_to "Delete", task, :method => :delete, :confirm => "are you sure?" %>
+  </li>
+
+  <% end %>
+</ol>
+<%= link_to "create new task", new_task_path %>

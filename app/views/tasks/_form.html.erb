@@ -1,0 +1,26 @@
+<%= form_for @task do |f| %>
+  
+  <% if @task.errors.any? %>
+      <h2>Invalid task, the errors were:</h2>
+      <ul>
+          <% @task.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+      </ul>
+  <% end %>
+
+
+  <p>
+	<%= f.label :description %>
+	<%= f.text_area :description %>
+  </p>
+
+  <p>
+	<%= f.label :priority %>
+	<%= f.number_field :priority %>
+  </p>
+  <p>
+	<%= f.submit %>
+  </p>
+
+<% end %>

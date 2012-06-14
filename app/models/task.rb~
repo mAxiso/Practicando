@@ -1,0 +1,14 @@
+class Task < ActiveRecord::Base
+  attr_accessible :description, :priority
+  validates_presence_of :description
+  validates_uniqueness_of :description
+  validates :priority, numericality: {:greater_than => 0}
+
+  before_validation :clean_description, if: "description.present?"
+
+  private
+  
+  def clean_description
+	self.description = self.description.strip.capitalize
+  end
+end
